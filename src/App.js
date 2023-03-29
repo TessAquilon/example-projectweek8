@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Details } from 'components/Details';
 import { NotFound } from 'components/NotFound';
+import { List } from 'components/List';
 
 export const App = () => {
   const [list, setList] = useState([]);
@@ -27,8 +28,14 @@ export const App = () => {
     );
   }
   return (
-    <div>
-      Find me in src/app.js!
-    </div>
+      <BrowserRouter>
+        <Header />
+          <Routes>
+            <Route path='/' element={<List pokemons={list} />} />
+            <Route path='/details/:pokemonName' element={<Details />}/>
+            <Route path='/404' element={<NotFound />} />
+            <Route path='*' element={<Navigate to='/404' replace />} />
+          </Routes>
+      </BrowserRouter>
   )
 }
