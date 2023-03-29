@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { Header } from './components/Header';
+import { Details } from 'components/Details';
+import { NotFound } from 'components/NotFound';
 
 export const App = () => {
   const [list, setList] = useState([]);
