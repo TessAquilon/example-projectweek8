@@ -18,6 +18,11 @@ export const App = () => {
       setLoading(false);
     })
   }, []);
+  if (loading) {
+    return(
+      <p>Loading...</p>
+    );
+  }
   return (
     <div>
       Find me in src/app.js!
